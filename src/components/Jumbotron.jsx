@@ -27,7 +27,7 @@ import React from 'react';
 
 export default function Jumbotron() {
   return (
-      <div className='relative mx-28 md:my-10 md:w-10/12 md:m-auto'> {/* md:w-9/12 md:m-auto */}
+      <div className='relative mx-28 md:my-10 md:w-10/12 md:m-auto'> 
         <img className='ml-10' src="/img/jumbotron.png" alt="" />
         <img className='absolute right-0 top-10' src="/img/jumbotron-img.png" alt="" />   
         <div className='absolute top-16 left-20 text-white w-5/12'>

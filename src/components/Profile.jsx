@@ -10,9 +10,9 @@ export default function Profile() {
                 <img src="/img/Avatar.png" alt="profile" />
                 <div className='ml-5 space-y-1'>
                     <p className='text-yellow-900 font-["Avenir-Black"]'>Full Name</p>
-                    <p className='pb-3'>Robby Alimu Fattah</p>
+                    <p className='pb-3'>Muhammad Passyah Abdul Raffi</p>
                     <p className='text-yellow-900 font-["Avenir-Black"]'>Email</p>
-                    <p>Robbyfattah99@gmail.com</p>
+                    <p>Passyah11@gmail.com</p>
                 </div>
             </div>
         </div>
@@ -40,7 +40,8 @@ export default function Profile() {
                     <img className='h-18' src="/img/code.png" alt="" />
                     <p className='text-blue-400 font-["Avenir-Black"] bg-blue-100 px-7 py-1 rounded-md text-xs'>On the way</p>
                     <p className='text-yellow-900 font-["Avenir-Black"] text-xs'>Sub Total: Rp.{Transactions.map((item) => item.price).reduce(
-                        (prev, next) => prev + next)}</p>
+                        (prev, next) => prev + next)}
+                    </p>
                 </div>
             </div>
         </div>

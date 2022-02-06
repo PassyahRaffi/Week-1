@@ -5,7 +5,7 @@ export default function AddTopping() {
     <div className="flex justify-between mx-28 my-10">
       <div className="w-7/12">
         <h4 className='text-5xl font-bold font-["Avenir-Black"] text-red-600'>
-          Topping
+          Toping
         </h4>
         <form
           action="/"
@@ -15,23 +15,23 @@ export default function AddTopping() {
           <input
             type="text"
             name="AddToppingName"
-            placeholder="Name Topping"
+            placeholder="Name Toping"
             className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
           />
           <input
             type="text"
             name="AddToppingtPrice"
-            placeholder="Topping"
+            placeholder="Price"
             className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
           />
           <input
             type="text"
             name="AddToppingPhoto"
-            placeholder="Photo Topping"
+            placeholder="Photo Product"
             className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
           />
           <button className="w-9/12 py-2 rounded-md text-white text-center bg-red-600">
-            Add Topping
+            Add Product
           </button>
         </form>
       </div>

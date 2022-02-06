@@ -132,22 +132,9 @@ export default function Cart() {
                         leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                     >
                         <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                            <h4 className='text-3xl mx-16 pt-10  font-bold font-["Avenir-Black"] text-red-700'>
-                                Login
-                            </h4>
-                            <form action="/" method='get' className='space-y-8 my-6 font-["Avenir-Book"] text-center'>
-                                <input type="text"
-                                name="InputEmail"
-                                placeholder='Email'
-                                className='w-96 p-2 outline outline-2 outline-red-600 focus:outline-red-700 rounded-sm bg-pink-50' 
-                                />
-                                <input type="password"
-                                name="InputPassword"
-                                placeholder='Password'
-                                className='w-96 p-2 outline outline-2 outline-red-600 focus:outline-red-700 rounded-sm bg-pink-50' 
-                                />
-                            </form>
-                            <p className='pb-10 text-center font-["Avenir-Book"]'>Don't have an account ? Klik <a href='' className='font-["Avenir-Black"]' >Here</a></p>
+                            <p className='text-md mx-5 mt-8 my-8 font-["Avenir-Black"] text-green-700'>
+                                Thank you for ordering in us, please wait to verify your order.
+                            </p>
                         </div>
                     </Transition.Child>
                     </div>

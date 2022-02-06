@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import './App.css'
 import MenuDetail from "./components/MenuDetail";
+import CustomerRoute from "./auth/CustomerRoute";
 
 
 export default function App(){
@@ -29,53 +30,55 @@ export default function App(){
                         <Menu />
                     </>}></Route>
 
-                    <Route path="/product" element={ 
-                    <>
-                        <Navbar 
-                        isLogin={isLogin}
-                        isAdmin={isAdmin}/>
-                        <MenuDetail />
-                    </>}></Route>
+                    <Route exact path="/" element={<CustomerRoute />} >
+                        <Route path="/product" element={ 
+                        <>
+                            <Navbar 
+                            isLogin={isLogin}
+                            isAdmin={isAdmin}/>
+                            <MenuDetail />
+                        </>}></Route>
 
-                    <Route path="/add-product" element={
-                    <>
-                        <Navbar 
-                        isLogin={isLogin}
-                        isAdmin={isAdmin}/>
-                        <AddProduct />
-                    </>}></Route>
+                        <Route path="/add-product" element={
+                        <>
+                            <Navbar 
+                            isLogin={isLogin}
+                            isAdmin={isAdmin}/>
+                            <AddProduct />
+                        </>}></Route>
 
-                    <Route path="/add-topping" element={ 
-                    <>
-                        <Navbar 
-                        isLogin={isLogin}
-                        isAdmin={isAdmin}/>
-                        <AddTopping />
-                    </>}></Route>
+                        <Route path="/add-topping" element={ 
+                        <>
+                            <Navbar 
+                            isLogin={isLogin}
+                            isAdmin={isAdmin}/>
+                            <AddTopping />
+                        </>}></Route>
 
-                    <Route path="/profile" element={
-                    <>
-                        <Navbar 
-                        isLogin={isLogin}
-                        isAdmin={isAdmin}/>
-                        <Profile />
-                    </>}></Route>
+                        <Route path="/profile" element={
+                        <>
+                            <Navbar 
+                            isLogin={isLogin}
+                            isAdmin={isAdmin}/>
+                            <Profile />
+                        </>}></Route>
 
-                    <Route path="/cart" element={
-                    <>
-                        <Navbar 
-                        isLogin={isLogin}
-                        isAdmin={isAdmin}/>
-                        <Cart />
-                    </>}></Route>
+                        <Route path="/cart" element={
+                        <>
+                            <Navbar 
+                            isLogin={isLogin}
+                            isAdmin={isAdmin}/>
+                            <Cart />
+                        </>}></Route>
 
-                    <Route path="/transactions" element={ 
-                    <>
-                        <Navbar 
-                        isLogin={isLogin}
-                        isAdmin={isAdmin}/>
-                        <Table />
-                    </>}></Route>
+                        <Route path="/transactions" element={ 
+                        <>
+                            <Navbar 
+                            isLogin={isLogin}
+                            isAdmin={isAdmin}/>
+                            <Table />
+                        </>}></Route>
+                    </Route>    
                 </Routes>
             </Router>
         </div>
