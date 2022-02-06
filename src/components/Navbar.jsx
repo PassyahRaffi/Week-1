@@ -15,7 +15,7 @@ export default function Navbar(props){
 
     return(
         <>
-            <nav className='flex justify-between items-center mx-20 my-2'>
+            <nav className='flex justify-between items-center mx-20 my-5'>
                 <div>
                     <Link to="/">
                         <img src="/img/logo.png" alt="logo" />
