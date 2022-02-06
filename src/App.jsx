@@ -14,8 +14,8 @@ import MenuDetail from "./components/MenuDetail";
 
 
 export default function App(){
-    const [isLogin, setIsLogin] = useState(true)
-    const [isAdmin, setIsAdmin] = useState(true)
+    const [isLogin, setIsLogin] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
     return(
         <div>
             <Router>
@@ -69,7 +69,7 @@ export default function App(){
                         <Cart />
                     </>}></Route>
 
-                    <Route path="/table-transaction" element={ 
+                    <Route path="/transactions" element={ 
                     <>
                         <Navbar 
                         isLogin={isLogin}

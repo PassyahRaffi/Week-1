@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 
 export default function Menu() {
   return (
-    <div className='mx-28'>
+    <div className='mx-28 my-10'>
       <div>
           <p className='text-red-600 font-["Avenir-Black"] font-bold text-4xl my-10'>Let's Order</p>
         </div>
