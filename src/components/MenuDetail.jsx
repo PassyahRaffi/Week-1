@@ -1,5 +1,6 @@
 import React from 'react';
 import Topping from './Topping'
+import thousandSeparator from '../utils/thousandSeparator';
 
 export default function MenuDetail() {
   return (
@@ -9,7 +10,7 @@ export default function MenuDetail() {
         </div>
         <div className='w-7/12'>
             <h4 className='text-red-600 text-4xl font-bold font-["Avenir-Black"]'>Ice Coffee Palm Sugar</h4>
-            <p className='text-lg text-red-400 mt-4 font-["Avenir-Black"]'>Rp 27.000</p>
+            <p className='text-lg text-red-400 mt-4 font-["Avenir-Black"]'>Rp {thousandSeparator(27000)}</p>
             <p className='text-lg text-red-800 mt-12 font-bold'>Topping</p>
             <div className='flex flex-wrap'>
                 {Topping.map((item) => (
@@ -21,7 +22,7 @@ export default function MenuDetail() {
             </div>
             <div className='flex justify-between mt-10 text-red-800 font-["Avenir-Black"] font-bold text-lg'>
                 <p>Total</p>
-                <p>Rp 31.000</p>
+                <p>Rp {thousandSeparator(31000)}</p>
             </div>
             <button className='mt-5 w-full bg-red-600 border-2 border-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700'>Add Chart</button>
         </div>
