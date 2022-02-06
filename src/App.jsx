@@ -25,7 +25,8 @@ export default function App(){
                     <>
                         <Navbar
                         isLogin={isLogin}
-                        isAdmin={isAdmin}/>
+                        isAdmin={isAdmin}
+                        onClick={()  => setIsLogin(!isLogin)}/>
                         <Jumbotron />
                         <Menu />
                     </>}></Route>
@@ -35,7 +36,8 @@ export default function App(){
                         <>
                             <Navbar 
                             isLogin={isLogin}
-                            isAdmin={isAdmin}/>
+                            isAdmin={isAdmin}
+                            onClick={()  => setIsLogin(!isLogin)}/>
                             <MenuDetail />
                         </>}></Route>
 
@@ -43,7 +45,8 @@ export default function App(){
                         <>
                             <Navbar 
                             isLogin={isLogin}
-                            isAdmin={isAdmin}/>
+                            isAdmin={isAdmin}
+                            onClick={()  => setIsLogin(!isLogin)}/>
                             <AddProduct />
                         </>}></Route>
 
@@ -51,7 +54,8 @@ export default function App(){
                         <>
                             <Navbar 
                             isLogin={isLogin}
-                            isAdmin={isAdmin}/>
+                            isAdmin={isAdmin}
+                            onClick={()  => setIsLogin(!isLogin)}/>
                             <AddTopping />
                         </>}></Route>
 
@@ -59,7 +63,8 @@ export default function App(){
                         <>
                             <Navbar 
                             isLogin={isLogin}
-                            isAdmin={isAdmin}/>
+                            isAdmin={isAdmin}
+                            onClick={()  => setIsLogin(!isLogin)}/>
                             <Profile />
                         </>}></Route>
 
@@ -67,7 +72,8 @@ export default function App(){
                         <>
                             <Navbar 
                             isLogin={isLogin}
-                            isAdmin={isAdmin}/>
+                            isAdmin={isAdmin}
+                            onClick={()  => setIsLogin(!isLogin)}/>
                             <Cart />
                         </>}></Route>
 
@@ -75,7 +81,8 @@ export default function App(){
                         <>
                             <Navbar 
                             isLogin={isLogin}
-                            isAdmin={isAdmin}/>
+                            isAdmin={isAdmin}
+                            onClick={()  => setIsLogin(!isLogin)}/>
                             <Table />
                         </>}></Route>
                     </Route>    

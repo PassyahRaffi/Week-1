@@ -40,8 +40,7 @@ export default function Profile() {
                     <img className='h-18' src="/img/code.png" alt="" />
                     <p className='text-blue-400 font-["Avenir-Black"] bg-blue-100 px-7 py-1 rounded-md text-xs'>On the way</p>
                     <p className='text-yellow-900 font-["Avenir-Black"] text-xs'>Sub Total: Rp.{Transactions.map((item) => item.price).reduce(
-                        (prev, next) => prev + next)}
-                    </p>
+                        (prev, next) => prev + next)}</p>
                 </div>
             </div>
         </div>

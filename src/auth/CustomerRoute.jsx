@@ -6,7 +6,7 @@ const CustomerRoute = ({ element: Component, ...rest }) => {
     const isSignin = true;
 
     return (
-        isSignin ? <Outlet /> : <Navigate to="/signin" />
+        isSignin ? <Outlet /> : <Navigate to="/" />
     );
 };
 
