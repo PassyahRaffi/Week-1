@@ -1,84 +1,83 @@
-import React from "react";
-import Navbar from "./components/Navbar";
+import React, { useState } from "react";
+import Navbar from './components/Navbar'
 import Jumbotron from "./components/Jumbotron";
 import Menu from "./components/Menu";
-import AddProduct from "./components/Admin/AddProduct";
-import AddTopping from "./components/Admin/AddTopping";
-import Profile from "./components/Profile";
-import Cart from "./components/Cart";
+import AddProduct from "./components/Admin/AddProduct"
+import AddTopping from './components/Admin/AddTopping'
+import Profile from "./components/Profile"
+import Cart from './components/Cart'
+import Table from './components/Admin/Table'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import "./App.css";
+import './App.css'
 import MenuDetail from "./components/MenuDetail";
 
-export default function App() {
-  return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/product" element={<ProductDetail />}></Route>
-          <Route path="/add-product" element={<AddNewProduct />}></Route>
-          <Route path="/add-topping" element={<AddNewTopping />}></Route>
-          <Route path="/profile" element={<ProfilePage />}></Route>
-          <Route path="/cart" element={<MyCart />}></Route>
-        </Routes>
-      </Router>
-    </div>
-  );
-}
 
-function Home() {
-  return (
-    <>
-      <Navbar />
-      <Jumbotron />
-      <Menu />
-    </>
-  );
-}
+export default function App(){
+    const [isLogin, setIsLogin] = useState(true)
+    const [isAdmin, setIsAdmin] = useState(true)
+    return(
+        <div>
+            <Router>
+                <Routes>
+                    <Route path="/" element={ 
+                    <>
+                        <Navbar
+                        isLogin={isLogin}
+                        isAdmin={isAdmin}/>
+                        <Jumbotron />
+                        <Menu />
+                    </>}></Route>
 
-function ProductDetail() {
-  return (
-    <>
-      <Navbar />
-      <MenuDetail />
-    </>
-  );
-}
+                    <Route path="/product" element={ 
+                    <>
+                        <Navbar 
+                        isLogin={isLogin}
+                        isAdmin={isAdmin}/>
+                        <MenuDetail />
+                    </>}></Route>
 
-function AddNewProduct() {
-  return (
-    <>
-      <Navbar />
-      <AddProduct />
-    </>
-  );
-}
+                    <Route path="/add-product" element={
+                    <>
+                        <Navbar 
+                        isLogin={isLogin}
+                        isAdmin={isAdmin}/>
+                        <AddProduct />
+                    </>}></Route>
 
-function AddNewTopping() {
-  return (
-    <>
-      <Navbar />
-      <AddTopping />
-    </>
-  );
-}
+                    <Route path="/add-topping" element={ 
+                    <>
+                        <Navbar 
+                        isLogin={isLogin}
+                        isAdmin={isAdmin}/>
+                        <AddTopping />
+                    </>}></Route>
 
-function ProfilePage() {
-  return (
-    <>
-      <Navbar />
-      <Profile />
-    </>
-  );
-}
+                    <Route path="/profile" element={
+                    <>
+                        <Navbar 
+                        isLogin={isLogin}
+                        isAdmin={isAdmin}/>
+                        <Profile />
+                    </>}></Route>
 
-function MyCart() {
-  return (
-    <>
-      <Navbar />
-      <Cart />
-    </>
-  );
+                    <Route path="/cart" element={
+                    <>
+                        <Navbar 
+                        isLogin={isLogin}
+                        isAdmin={isAdmin}/>
+                        <Cart />
+                    </>}></Route>
+
+                    <Route path="/table-transaction" element={ 
+                    <>
+                        <Navbar 
+                        isLogin={isLogin}
+                        isAdmin={isAdmin}/>
+                        <Table />
+                    </>}></Route>
+                </Routes>
+            </Router>
+        </div>
+    )
 }
