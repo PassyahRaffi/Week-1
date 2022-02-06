@@ -1,5 +1,6 @@
 import React from 'react';
 import Transactions from './Transactions'
+import thousandSeparator from '../utils/thousandSeparator';
 
 export default function Profile() {
   return (
@@ -29,7 +30,7 @@ export default function Profile() {
                                 <p className='text-red-600 font-["Avenir-Black"] '>{item.productName}</p>
                                 <p className='pb-2 text-yellow-900'>{item.orderDate}</p>
                                 <p className='text-red-600 font-["Avenir-Black"]'>Topping: {item.topping}</p>
-                                <p className='pb-5 text-yellow-900'>Price: Rp. {item.price}</p>
+                                <p className='pb-5 text-yellow-900'>Price: Rp {thousandSeparator(item.price)}</p>
                             </div>
                         </div>             
                     ))}  
@@ -39,7 +40,7 @@ export default function Profile() {
                     <img className='h-12 w-12' src="/img/logo.png" alt="" />
                     <img className='h-18' src="/img/code.png" alt="" />
                     <p className='text-blue-400 font-["Avenir-Black"] bg-blue-100 px-7 py-1 rounded-md text-xs'>On the way</p>
-                    <p className='text-yellow-900 font-["Avenir-Black"] text-xs'>Sub Total: Rp.{Transactions.map((item) => item.price).reduce(
+                    <p className='text-yellow-900 font-["Avenir-Black"] text-xs'>Sub Total: Rp {Transactions.map((item) => item.price).reduce(
                         (prev, next) => prev + next)}</p>
                 </div>
             </div>

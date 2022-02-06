@@ -106,7 +106,7 @@ export default function Navbar(props){
                                 </Menu.Items>
                                 </Transition>
                             </Menu>
-                        </div> 
+                        </div>
                     </div>
                     ) : (
                     <>

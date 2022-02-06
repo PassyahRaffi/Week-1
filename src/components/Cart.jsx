@@ -41,7 +41,7 @@ export default function Cart() {
                                 <hr className='pb-4 border-1 mt-4 border-red-500' />
                                 <div className='flex justify-between pb-4'>
                                     <p className='text-red-600 font-["Avenir-Blook"] text-md'>Sub Total: </p>
-                                    <p className='text-red-600 text-md'>Rp {Transactions.map((item) => item.price).reduce((prev, next) => prev + next)}</p>
+                                    <p className='text-red-600 text-md'>Rp {thousandSeparator(Transactions.map((item) => item.price).reduce((prev, next) => prev + next))}</p>
                                 </div>
                                 <div className='flex justify-between pb-4'>
                                     <p className='text-red-600 font-["Avenir-Book"] text-md'>Quantity</p>
@@ -50,7 +50,7 @@ export default function Cart() {
                                 <hr className='pb-4 border-1 border-red-500' />
                                 <div className='flex justify-between pb-4'>
                                     <p className='text-red-800 font-["Avenir-Black"] text-md'>Total: </p>
-                                    <p className='text-red-800 font-["Avenir-Black"] text-md'>Rp {Transactions.map((item) => item.price).reduce((prev, next) => prev + next)}</p>
+                                    <p className='text-red-800 font-["Avenir-Black"] text-md'>Rp {thousandSeparator(Transactions.map((item) => item.price).reduce((prev, next) => prev + next))}</p>
                                 </div>
                             </div>
                             <div className='mx-14 mt-2 w-1/3 justify-end'>     
