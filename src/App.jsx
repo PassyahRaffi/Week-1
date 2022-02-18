@@ -13,81 +13,48 @@ import './App.css'
 import MenuDetail from "./components/MenuDetail";
 import CustomerRoute from "./auth/CustomerRoute";
 
+import Modal from "./components/modals";
+import { AdminProvider, LoginProvider, RegisteredProvider } from "./contexts/AuthContext";
+import { CartModalProvider, ModalProvider, TransactionModalProvider } from "./contexts/ModalContext";
 
 export default function App(){
-    const [isLogin, setIsLogin] = useState(false)
-    const [isAdmin, setIsAdmin] = useState(false)
     return(
         <div>
-            <Router>
-                <Routes>
-                    <Route path="/" element={ 
-                    <>
-                        <Navbar
-                        isLogin={isLogin}
-                        isAdmin={isAdmin}
-                        onClick={() => setIsLogin(!isLogin)}/>
-                        <Jumbotron />
-                        <Menu />
-                    </>}></Route>
+            <LoginProvider>
+                <AdminProvider>
+                    <Router>
+                        <ModalProvider>
+                            <RegisteredProvider>
+                                <Navbar />
+                                <Modal />   
+                            </RegisteredProvider>
+                        </ModalProvider>
+                        <Routes>
+                            <Route path="/" element={ 
+                                <>
+                                    <Jumbotron />
+                                    <Menu />
+                                </>
+                            }/>
 
-                    <Route exact path="/" element={<CustomerRoute />} >
-                        <Route path="/product" element={ 
-                        <>
-                            <Navbar 
-                            isLogin={isLogin}
-                            isAdmin={isAdmin}
-                            onClick={() => setIsLogin(!isLogin)}/>
-                            <MenuDetail />
-                        </>}></Route>
-
-                        <Route path="/add-product" element={
-                        <>
-                            <Navbar 
-                            isLogin={isLogin}
-                            isAdmin={isAdmin}
-                            onClick={() => setIsLogin(!isLogin)}/>
-                            <AddProduct />
-                        </>}></Route>
-
-                        <Route path="/add-topping" element={ 
-                        <>
-                            <Navbar 
-                            isLogin={isLogin}
-                            isAdmin={isAdmin}
-                            onClick={() => setIsLogin(!isLogin)}/>
-                            <AddTopping />
-                        </>}></Route>
-
-                        <Route path="/profile" element={
-                        <>
-                            <Navbar 
-                            isLogin={isLogin}
-                            isAdmin={isAdmin}
-                            onClick={() => setIsLogin(!isLogin)}/>
-                            <Profile />
-                        </>}></Route>
-
-                        <Route path="/cart" element={
-                        <>
-                            <Navbar 
-                            isLogin={isLogin}
-                            isAdmin={isAdmin}
-                            onClick={() => setIsLogin(!isLogin)}/>
-                            <Cart />
-                        </>}></Route>
-
-                        <Route path="/transactions" element={ 
-                        <>
-                            <Navbar 
-                            isLogin={isLogin}
-                            isAdmin={isAdmin}
-                            onClick={() => setIsLogin(!isLogin)}/>
-                            <Table />
-                        </>}></Route>
-                    </Route>    
-                </Routes>
-            </Router>
+                            <Route exact path="/" element={<CustomerRoute />} >
+                                <Route path="/product" element={<MenuDetail />} />
+                                <Route path="/add-product" element={<AddProduct />} />
+                                <Route path="/add-topping" element={<AddTopping />} />
+                                <Route path="/profile" element={<Profile />} />
+                                <Route path="/cart" element={
+                                    <CartModalProvider>
+                                        <Cart />
+                                    </CartModalProvider>} />
+                                <Route path="/transactions" element={
+                                    <TransactionModalProvider>
+                                        <Table />
+                                    </TransactionModalProvider>} />
+                            </Route>    
+                        </Routes>
+                    </Router>
+                </AdminProvider>
+            </LoginProvider>
         </div>
     )
 }

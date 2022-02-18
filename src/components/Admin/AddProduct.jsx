@@ -9,14 +9,14 @@ export default function AddProduct() {
         </h4>
         <form action="/" method='get' className='space-y-8 my-10 font-["Avenir-Book"] text-center'>
           <input type="text"
-            name="AddProductName"
-            placeholder='Name Product'
-            className='w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100' 
+          name="AddProductName"
+          placeholder='Name Product'
+          className='w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100' 
           />
           <input type="text"
-            name="AddProductPrice"
-            placeholder='Price'
-            className='w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100' 
+          name="AddProductPrice"
+          placeholder='Price'
+          className='w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100' 
           />
           <label className='flex justify-between outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100' htmlFor="file-upload">
             <div className='flex justify-between w-full items-center'>

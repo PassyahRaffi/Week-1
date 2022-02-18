@@ -1,16 +1,22 @@
-import React from 'react';
-import { Fragment, useRef, useState } from 'react'
-import Transactions from './Transactions';
-import { Dialog, Transition } from '@headlessui/react'
-import thousandSeparator from "../utils/thousandSeparator"
+import React, {useContext}  from 'react';
+import Transactions from '../TempDatabase/Transactions';
+import { CartModalContext } from "../contexts/ModalContext";
+import CartModal from './modals/CartModal'
+
 
 export default function Cart() {
 
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useContext(CartModalContext)
 
-    const cancelButtonRef = useRef(null)
+    function successPrompt() {
+        setOpen(!open);
+        setTimeout(() => {
+            setOpen(false)
+        }, 3000);
+    }
 
-    return (
+  return (
+      <>
         <div className='mx-44 my-10'>
             <div>
                 <h1 className='text-red-700 font-["Avenir-Black"] text-2xl pb-7'>My Cart</h1>
@@ -30,7 +36,7 @@ export default function Cart() {
                                 </div>
                             </div>
                             <div className='flex flex-col items-end'>
-                                <p className='pb-5 text-red-600 my-2'>Rp {thousandSeparator(item.price)}</p>
+                                <p className='pb-5 text-red-600 my-2'>Rp. {item.price}</p>
                                 <img className='cursor-pointer' src="/img/dumb.png" alt="" />
                             </div>
                         </div>
@@ -41,7 +47,7 @@ export default function Cart() {
                                 <hr className='pb-4 border-1 mt-4 border-red-500' />
                                 <div className='flex justify-between pb-4'>
                                     <p className='text-red-600 font-["Avenir-Blook"] text-md'>Sub Total: </p>
-                                    <p className='text-red-600 text-md'>Rp {thousandSeparator(Transactions.map((item) => item.price).reduce((prev, next) => prev + next))}</p>
+                                    <p className='text-red-600 text-md'>Rp. {Transactions.map((item) => item.price).reduce((prev, next) => prev + next)}</p>
                                 </div>
                                 <div className='flex justify-between pb-4'>
                                     <p className='text-red-600 font-["Avenir-Book"] text-md'>Quantity</p>
@@ -50,7 +56,7 @@ export default function Cart() {
                                 <hr className='pb-4 border-1 border-red-500' />
                                 <div className='flex justify-between pb-4'>
                                     <p className='text-red-800 font-["Avenir-Black"] text-md'>Total: </p>
-                                    <p className='text-red-800 font-["Avenir-Black"] text-md'>Rp {thousandSeparator(Transactions.map((item) => item.price).reduce((prev, next) => prev + next))}</p>
+                                    <p className='text-red-800 font-["Avenir-Black"] text-md'>Rp. {Transactions.map((item) => item.price).reduce((prev, next) => prev + next)}</p>
                                 </div>
                             </div>
                             <div className='mx-14 mt-2 w-1/3 justify-end'>     
@@ -97,50 +103,14 @@ export default function Cart() {
                         <textarea className='p-2 w-72 outline outline-2 outline-red-600 focus:outline-red-700 rounded-sm bg-pink-50' 
                         name="InputAddress" placeholder='Address' id="" cols="30" rows="4"></textarea>
 
-                        <button onClick={() => setOpen(!open)} type='button' className='mx-9 w-9/12 py-1 rounded-md text-white text-center bg-red-600'>
+                        <button onClick={() => successPrompt()} type='button' className='mx-9 w-9/12 py-1 rounded-md text-white text-center bg-red-600'>
                             Pay
                         </button>
                     </form>
                 </div>
             </div>
-
-            <Transition.Root show={open} as={Fragment}>
-                <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" initialFocus={cancelButtonRef} onClose={setOpen}>
-                    <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                    <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                    >
-                        <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-                    </Transition.Child>
-
-                    {/* This element is to trick the browser into centering the modal contents. */}
-                    <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
-                        &#8203;
-                    </span>
-                    <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                        enterTo="opacity-100 translate-y-0 sm:scale-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                        leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                    >
-                        <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                            <p className='text-md mx-5 mt-8 my-8 font-["Avenir-Black"] text-green-700'>
-                                Thank you for ordering in us, please wait to verify your order.
-                            </p>
-                        </div>
-                    </Transition.Child>
-                    </div>
-                </Dialog>
-            </Transition.Root>
         </div>
-    )
+        <CartModal />
+      </>
+    )              
 }
